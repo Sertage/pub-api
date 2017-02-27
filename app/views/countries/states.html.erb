@@ -1,0 +1,41 @@
+@result
+
+<p id="notice"><%#= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%#= @task.name %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%#= @task.path %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%#= @task.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%#= @task.end_at %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%#= @task.days %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%#= @task.hour %>
+</p>
+
+<p>
+  <strong>Server:</strong>
+  <%#= @task.server_id %>
+</p>
+
+<%#= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', countries_path %>

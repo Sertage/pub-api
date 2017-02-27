@@ -1,0 +1,68 @@
+<% content_for :javascripts do %>
+  <script src="/assets/js/dataTables/jquery.dataTables.js"></script>
+  <script src="/assets/js/dataTables/jquery.dataTables.bootstrap.js"></script>
+  <script src="/assets/js/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+  <script src="/assets/js/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
+<% end %>
+<div class="row">
+
+  <div class="widget-box widget-color-blue" id="widget-box-2">
+    <div class="widget-header">
+      <h5 class="widget-title bigger lighter">
+        <i class="ace-icon fa fa-desktop"></i>
+        Countries
+      </h5>
+    </div>
+    <div class="widget-body">
+      <div class="widget-main no-padding">
+        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Code 2</th>
+              <th>Code 3</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @results.each do |country| %>
+              <tr>
+                <td><%= country.at(0)%></td>
+                <td><%= country.at(1)%></td>
+                <td><%= country.at(2)%></td>
+                <td><%#= link_to 'States', state_countries_path %></td>
+              </tr>
+            <% end %>
+          </tbody>
+
+        </table>
+
+        <br>
+
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<% content_for :inline_scripts do %>
+  <script type="text/javascript">
+
+    loadServerPage();
+
+    function loadServerPage() {
+      try {
+        $("#dynamic-table").dataTable({
+          //"order": [[ 0, "asc" ]]
+          "pageLength": 10
+        });
+      } catch (ex) {
+        Flash.error(ex)
+      }
+
+    }
+
+  </script>
+<% end %>
